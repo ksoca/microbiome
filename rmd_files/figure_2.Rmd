@@ -1,0 +1,151 @@
+---
+title: "Heatmap of Top 5% of OTU within Ixodes pacificus"
+author: "Kayla M. Socarras"
+date: "2024-12-04"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (!require("pacman")) install.packages("pacman", "CRAN")
+library(pacman)
+
+#Clear Packages
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
+
+pacman::p_load(knitr, ggplot2, gplots, ggtree, tibble, tidytree, dplyr, tidyr, readr, harrietr, pheatmap, viridis, RColorBrewer, factoextra, FactoMineR, tidyselect, M3C, vegan, ggpubr, caret )
+
+#Heatmap saving function
+save_pheatmap_png <- function(x, filename, width=10, height=10, res = 300) {
+  png(filename, width = width, height = height, res = res, units = "in")
+  grid::grid.newpage()
+  grid::grid.draw(x$gtable)
+  dev.off()
+}
+```
+
+#Load data
+```{r data}
+#Load the main files you will need.
+all_samples_table <-read_tsv("../data/post_final_results_updated.tsv")
+info<-read_csv("../data/meta_sample.csv")
+```
+
+#data cleaning and wrangling
+```{r filtering}
+#Make a Ixodes pacificus tick table and remove non-count columns
+otu_count_table <- all_samples_table %>%
+  select(-domain:-num_of_otus_with_same_sp, -size) %>%
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "count")  %>%
+  inner_join(select(info, rName)) %>%
+  group_by(OTU_ID) %>%
+  mutate(total = sum(count)) %>% 
+  ungroup() %>%
+  filter(total > 0) %>% #get rid of OTU no longer present
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = count)
+
+#Create a TSV with Ixodes pacificus ticks OTU
+write_tsv(otu_count_table, "rlane_otu_counts.tsv")
+
+#Create a control sample vector
+control_samps <- info %>%
+  filter(type == "control")
+
+#Create a taxonomic info table
+otu_tax_info <- all_samples_table %>%
+  select(OTU_ID, domain:num_of_otus_with_same_sp)
+write_tsv(otu_tax_info, "rlane_otu_tax.tsv")
+
+#identify maximum OTU counts found in negative controls
+max_ctrl_counts <- all_samples_table %>%  
+   select(-size, -domain:-num_of_otus_with_same_sp, species) %>% 
+   pivot_longer(cols = c(-species, -OTU_ID), names_to = "rName", values_to = "counts") %>%  
+   inner_join(info) %>% 
+   filter(collaborator == "lane" & type == "control") %>% 
+   group_by(OTU_ID) %>%
+   summarize(max_ctrl = max(counts)) %>% 
+   ungroup() %>%
+   filter(max_ctrl > 0) %>%
+  inner_join(select(otu_tax_info, OTU_ID, species))
+  
+#remove the number of counts of each OTU found in negative controls and filter out OTU at low percent abundance (for heatmap, this is 5%)
+#5pct = 5 percent
+filt_otu_5pct <- otu_count_table %>% 
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "counts") %>%
+  full_join(select(max_ctrl_counts, OTU_ID, max_ctrl)) %>% #join with max control otu counts
+  replace_na(list(max_ctrl=0)) %>% #missing max control otu counts should just be zero
+  mutate(count_no_ctrl = if_else((counts - max_ctrl)<0,true=0,false=counts-max_ctrl)) %>% #modify sample counts by subtracting off max control otu counts - if that would be a negative value, it's just zero 
+  filter(!rName %in% control_samps$rName) %>% 
+  group_by(rName) %>%
+  mutate(samp_num_reads = sum(count_no_ctrl)) %>% 
+  filter(samp_num_reads > 100) %>% 
+  mutate(percent_otu = count_no_ctrl/samp_num_reads) %>% 
+  ungroup() %>%
+  group_by(OTU_ID) %>%
+  mutate(percent_max = max(percent_otu)) %>% 
+  ungroup() %>%
+  filter(percent_max > .05) %>% #setting this to 5% for heatmap, but probably want 1% for diversity metrics
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = percent_otu) %>%
+  as.data.frame()
+
+filt_species <- filt_otu_5pct %>%
+  inner_join(select(otu_tax_info, OTU_ID, species)) %>%
+  select(species)
+
+row.names(filt_otu_5pct) <- paste( filt_otu_5pct$OTU_ID, filt_species$species, sep = "_")
+
+#add a pseudocount
+filt_otu_5pct[filt_otu_5pct==0] <- .000000001
+```
+
+## Generating a heatmap for the most common pathogens in Ixodes pacificus
+```{r heatmap}
+#Convert into a matrix for pheatmap  to work and get rid of OTU_ID
+otu_matrix <- as.matrix(filt_otu_5pct[,-1])
+
+#Transform into log scale so that you can work with your matrix
+otu_matrix_log <- log10(otu_matrix)
+
+#You can define how to cluster samples and OTU for pheatmap. 
+# One way is hierarchically clustering your columns (samples)
+samp_distance <- dist(t(otu_matrix_log), method="euclid")
+samp_hc       <- hclust(samp_distance, method = "complete") #previously set to complete or ward.d2 linkage
+
+#Repeat the same for your rows (OTUs)
+otu_dist <- dist(otu_matrix_log, method = "euclid")
+otu_hc  <- hclust(otu_dist, method = "complete") #previously set to complete or ward.d2 linkage
+
+#We can label the heatmap through the addition of annotation columns or rows 
+#this is for samples (columns)
+info_no_ctrl <- filter(info, type != 'control')
+tick_annotation <- data.frame(Location=info_no_ctrl$park, Sex=info_no_ctrl$sex, stringsAsFactors = FALSE, row.names = info_no_ctrl$rName)
+
+#Create a similar dataframe for the row (OTU) annotation.
+otu_annotation <- select(all_samples_table, OTU_ID, species, genus_conf, species_conf) %>%
+  mutate(otu_unique_name = paste(OTU_ID, species, sep = "_"))
+otu_annotation <- data.frame(row.names = otu_annotation$otu_unique_name, select(otu_annotation, genus_conf, species_conf))
+
+#R has horrible defaults so you will need to define color palettes. This is how you do so for pheatmap.
+annotation_colors = list(
+  Location = c('Redwood Regional' = "#5E60CE", 'Anthony Chabot Regional' ="#E9869D"),
+  Sex = c('female' = "#FFBD00", 'male'= "#BBDDA6")) 
+  
+#Let's do some pretty heatmaps finally with you final matrix!
+pheat_all <- pheatmap(mat = otu_matrix_log,
+         cluster_cols = samp_hc,
+         cluster_rows = otu_hc,
+         color = brewer.pal(9, "GnBu"),
+         border_color = "grey60",
+         cellwidth = 4, 
+         cellheight = 4.5,
+         fontsize = 4,
+         fontsize_row = 4, 
+         fontsize_col=4,
+         annotation_col = tick_annotation,
+         annotation_colors = annotation_colors,
+         annotation_row= otu_annotation,
+         fontsize_number = 0.5 * fontsize) 
+save_pheatmap_png(pheat_all, filename = "../pheat_all_5pct_12042024.png", width = 8, height = 6.5, res = 400)
+
+#this should give you a heatmap depicting the top 5% otu found within the whole Ixodes pacificus microbiome.
+```

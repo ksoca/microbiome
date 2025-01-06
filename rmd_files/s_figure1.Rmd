@@ -1,0 +1,76 @@
+---
+title: "supplementary figure on controls"
+author: "Kayla M. Socarras"
+date: "2024-12-04"
+output: html_document
+---
+
+````{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (!require("pacman")) install.packages("pacman", "CRAN")
+library(pacman)
+
+#Clear Packages
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
+
+pacman::p_load(knitr, ggplot2, gplots, ggtree, tibble, tidytree, dplyr, tidyr, readr, harrietr, pheatmap, viridis, RColorBrewer, factoextra, FactoMineR, tidyselect, M3C, vegan, ggpubr, caret )
+
+#Heatmap saving function
+save_pheatmap_png <- function(x, filename, width=10, height=10, res = 300) {
+  png(filename, width = width, height = height, res = res, units = "in")
+  grid::grid.newpage()
+  grid::grid.draw(x$gtable)
+  dev.off()
+}
+```
+
+#Load data
+```{r data}
+#Load the main files you will need.
+all_samples_table <-read_tsv("../data/post_final_results_updated.tsv")
+info<-read_csv("../data/meta_sample.csv")
+```
+
+```{r filtering data}
+#Create a taxonomic info table
+otu_tax_info <- all_samples_table %>%
+  select(OTU_ID, domain:num_of_otus_with_same_sp)
+write_tsv(otu_tax_info, "rlane_otu_tax.tsv")
+
+ctrl_otu_pct <- all_samples_table %>%  
+  select(-size, -domain:-num_of_otus_with_same_sp, species) %>% 
+  pivot_longer(cols = c(-species, -OTU_ID), names_to = "rName", values_to = "counts") %>%  
+  inner_join(info) %>%
+  filter(collaborator == "lane" & type == "control") %>%
+  group_by(OTU_ID) %>%
+  mutate(total = sum(counts)) %>% 
+  ungroup() %>%
+  filter(total > 0) %>% 
+  group_by(rName) %>%
+  mutate(samp_total = sum(counts)) %>%
+  mutate(percents = counts/samp_total) %>%
+  ungroup() %>%
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = percents) %>%
+  as.data.frame()
+
+ctrl_otu_species <- ctrl_otu_pct %>%
+  inner_join(select(otu_tax_info, OTU_ID, species)) %>%
+  select(species)
+
+row.names(ctrl_otu_pct) <- paste( ctrl_otu_pct$OTU_ID, ctrl_otu_species$species, sep = "_")
+
+ctrl_otu_pct[ctrl_otu_pct == 0] <- .000000001
+```
+```{r control_heatmap}
+ctrl_heat <- pheatmap(log10(as.matrix(ctrl_otu_pct[,-1])),
+                      color = brewer.pal(9, "GnBu"),
+                      border_color = "grey60",
+                      cellwidth = 25, 
+                      #cellheight = 8,
+                      fontsize = 5,
+                      fontsize_row = 5, 
+                      fontsize_col=5,
+         main = "OTU Present in Negative Controls (log10 Percent Abundance)")
+save_pheatmap_png(ctrl_heat, filename = "pheat_ctrl_12042024.png", width = 5, height = 5, res = 400)
+```

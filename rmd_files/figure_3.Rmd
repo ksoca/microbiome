@@ -1,0 +1,138 @@
+---
+title: "figure 3"
+author: "Kayla M. Socarras"
+date: "2024-12-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (!require("pacman")) install.packages("pacman", "CRAN")
+library(pacman)
+
+#Clear Packages
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
+
+pacman::p_load(knitr, ggplot2, gplots, ggtree, tibble, tidytree, dplyr, tidyr, readr, harrietr, pheatmap, viridis, RColorBrewer, factoextra, FactoMineR, tidyselect, M3C, vegan, ggpubr, caret )
+
+#Heatmap saving function
+save_pheatmap_png <- function(x, filename, width=10, height=10, res = 300) {
+  png(filename, width = width, height = height, res = res, units = "in")
+  grid::grid.newpage()
+  grid::grid.draw(x$gtable)
+  dev.off()
+}
+```
+
+```{r load_data }
+#Load the main files you will need.
+all_samples_table <-read_tsv("../data/post_final_results_updated.tsv")
+info<-read_csv("../data/meta_sample.csv")
+```
+
+```{r data_filtering}
+#Make a ixodes pacificus tick table and remove non-count columns
+otu_count_table <- all_samples_table %>%
+  select(-domain:-num_of_otus_with_same_sp, -size) %>%
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "count")  %>%
+  inner_join(select(info, rName)) %>%
+  group_by(OTU_ID) %>%
+  mutate(total = sum(count)) %>% 
+  ungroup() %>%
+  filter(total > 0) %>% #get rid of OTU no longer present
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = count)
+
+#Create a control sample vector
+control_samps <- info %>%
+  filter(type == "control")
+
+#Create a taxonomic info table
+otu_tax_info <- all_samples_table %>%
+  select(OTU_ID, domain:num_of_otus_with_same_sp)
+write_tsv(otu_tax_info, "rlane_otu_tax.tsv")
+
+#identify maximum OTU counts found in negative controls
+max_ctrl_counts <- all_samples_table %>%  
+   select(-size, -domain:-num_of_otus_with_same_sp, species) %>% 
+   pivot_longer(cols = c(-species, -OTU_ID), names_to = "rName", values_to = "counts") %>%  
+   inner_join(info) %>% 
+   filter(collaborator == "lane" & type == "control") %>% 
+   group_by(OTU_ID) %>%
+   summarize(max_ctrl = max(counts)) %>% 
+   ungroup() %>%
+   filter(max_ctrl > 0) %>%
+  inner_join(select(otu_tax_info, OTU_ID, species))
+pathogen_otus <- read_csv("../data/Pathogens.csv")
+
+#remove the number of counts of each OTU found in negative controls and filter OTU at low percent abundance (for most analysis this is 1%)
+#1pct = 1 percent
+filt_otu_1pct <- otu_count_table %>% 
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "counts") %>%
+  full_join(select(max_ctrl_counts, OTU_ID, max_ctrl)) %>% #join with max control otu counts
+  replace_na(list(max_ctrl=0)) %>% #missing max control otu counts should just be zero
+  mutate(count_no_ctrl = if_else((counts - max_ctrl)<0,true=0,false=counts-max_ctrl)) %>% #modify sample counts by subtracting off max control otu counts - if that would be a negative value, it's just zero 
+  filter(!rName %in% control_samps$rName) %>% 
+  group_by(rName) %>%
+  mutate(samp_num_reads = sum(count_no_ctrl)) %>% 
+  filter(samp_num_reads > 100) %>% #remove samples with too few reads
+  mutate(percent_otu = count_no_ctrl/samp_num_reads) %>% 
+  ungroup() %>%
+  group_by(OTU_ID) %>%
+  mutate(percent_max = max(percent_otu)) %>% 
+  ungroup() %>%
+  filter(percent_max > .01) %>% #5% for heatmap, but 1% for diversity metrics
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = percent_otu) %>%
+  as.data.frame()
+
+#same filtering as above, 1 percent filtering on corrected ixodes pacificus
+patho_otu_count_table <- filt_otu_1pct %>%
+  inner_join(select(otu_tax_info, OTU_ID, species)) %>%
+  mutate(OTU_ID = paste(OTU_ID, species, sep="_")) %>%
+  inner_join(pathogen_otus) %>%
+  filter(Pathogen == "Yes") %>%
+  select(-species, -Pathogen) %>%
+  as.data.frame()
+
+#put in OTU_ID
+row.names(patho_otu_count_table) <- patho_otu_count_table$OTU_ID
+
+#set OTU_ID as the row name
+patho_otu_count_table$OTU_ID <- NULL
+
+#pseudocount to deal with huge variability
+patho_otu_count_table[patho_otu_count_table==0]<- .000000001
+```
+
+```{r pathogen_heatmap}
+#We can label the heatmap through the addition of annotation columns or rows 
+#this is for samples (columns)
+info_no_ctrl <- filter(info, type != 'control')
+tick_annotation <- data.frame(Location=info_no_ctrl$park, Sex=info_no_ctrl$sex, stringsAsFactors = FALSE, row.names = info_no_ctrl$rName)
+
+#Create a similar dataframe for the row (OTU) annotation.
+otu_annotation <- select(all_samples_table, OTU_ID, species, genus_conf, species_conf) %>%
+  mutate(otu_unique_name = paste(OTU_ID, species, sep = "_"))
+otu_annotation <- data.frame(row.names = otu_annotation$otu_unique_name, select(otu_annotation, genus_conf, species_conf))
+
+#R has horrible defaults so you will need to define color palettes. This is how you do so for pheatmap.
+annotation_colors = list(
+  Location = c('Redwood Regional' = "#5E60CE", 'Anthony Chabot Regional' ="#E9869D"),
+  Sex = c('female' = "#FFBD00", 'male'= "#BBDDA6")) 
+
+#generate your heatmap
+pheat_pathogens <- pheatmap(log10(as.matrix(patho_otu_count_table)),
+                            annotation_col = tick_annotation,
+                            color = brewer.pal(9, "GnBu"),
+                            border_color = "grey60",
+                            cellwidth = 5, 
+                            cellheight = 10,
+                            fontsize = 5,
+                            fontsize_row = 5,
+                            fontsize_col=5,
+                            annotation_colors = annotation_colors,
+                            main="Pathogen OTU (log10 rel abundance)")
+save_pheatmap_png(pheat_pathogens, "pheat_pathogens_1pct_12042024.png", width = 10, height = 6, res = 400)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

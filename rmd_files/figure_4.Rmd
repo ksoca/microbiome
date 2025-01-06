@@ -1,0 +1,187 @@
+---
+title: "Figure 4"
+author: "Kayla M. Socarras"
+date: "2024-12-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (!require("pacman")) install.packages("pacman", "CRAN")
+library(pacman)
+
+#Clear Packages
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
+
+pacman::p_load(knitr, ggplot2, gplots, ggtree, tibble, tidytree, dplyr, tidyr, readr, harrietr, pheatmap, viridis, RColorBrewer, factoextra, FactoMineR, tidyselect, M3C, vegan, ggpubr, caret )
+
+#Heatmap saving function
+save_pheatmap_png <- function(x, filename, width=10, height=10, res = 300) {
+  png(filename, width = width, height = height, res = res, units = "in")
+  grid::grid.newpage()
+  grid::grid.draw(x$gtable)
+  dev.off()
+}
+```
+
+```{r load_data }
+#Load the main files you will need.
+all_samples_table <-read_tsv("../data/post_final_results_updated.tsv")
+info<-read_csv("../data/meta_sample.csv")
+```
+
+```{r data filtering and wrangling}
+#Make a ixodes pacificus tick table and remove non-count columns
+otu_count_table <- all_samples_table %>%
+  select(-domain:-num_of_otus_with_same_sp, -size) %>%
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "count")  %>%
+  inner_join(select(info, rName)) %>%
+  group_by(OTU_ID) %>%
+  mutate(total = sum(count)) %>% 
+  ungroup() %>%
+  filter(total > 0) %>% #get rid of OTU no longer present
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = count)
+
+#Create a control sample vector
+control_samps <- info %>%
+  filter(type == "control")
+
+#Create a taxonomic info table
+otu_tax_info <- all_samples_table %>%
+  select(OTU_ID, domain:num_of_otus_with_same_sp)
+
+#identify maximum OTU counts found in negative controls
+max_ctrl_counts <- all_samples_table %>%  
+   select(-size, -domain:-num_of_otus_with_same_sp, species) %>% 
+   pivot_longer(cols = c(-species, -OTU_ID), names_to = "rName", values_to = "counts") %>%  
+   inner_join(info) %>% 
+   filter(collaborator == "lane" & type == "control") %>% 
+   group_by(OTU_ID) %>%
+   summarize(max_ctrl = max(counts)) %>% 
+   ungroup() %>%
+   filter(max_ctrl > 0) %>%
+  inner_join(select(otu_tax_info, OTU_ID, species))
+
+#remove the number of counts of each OTU found in negative controls and filter out OTU at low percent abundance (for heatmap, this is 5%)
+#5pct = 5 percent
+filt_otu_5pct <- otu_count_table %>% 
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "counts") %>%
+  full_join(select(max_ctrl_counts, OTU_ID, max_ctrl)) %>% #join with max control otu counts
+  replace_na(list(max_ctrl=0)) %>% #missing max control otu counts should just be zero
+  mutate(count_no_ctrl = if_else((counts - max_ctrl)<0,true=0,false=counts-max_ctrl)) %>% #modify sample counts by subtracting off max control otu counts - if that would be a negative value, it's just zero 
+  filter(!rName %in% control_samps$rName) %>% 
+  group_by(rName) %>%
+  mutate(samp_num_reads = sum(count_no_ctrl)) %>% 
+  filter(samp_num_reads > 100) %>% 
+  mutate(percent_otu = count_no_ctrl/samp_num_reads) %>% 
+  ungroup() %>%
+  group_by(OTU_ID) %>%
+  mutate(percent_max = max(percent_otu)) %>% 
+  ungroup() %>%
+  filter(percent_max > .05) %>% #setting this to 5% for heatmap, but probably want 1% for diversity metrics
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = percent_otu) %>%
+  as.data.frame()
+
+filt_species <- filt_otu_5pct %>%
+  inner_join(select(otu_tax_info, OTU_ID, species)) %>%
+  select(species)
+
+row.names(filt_otu_5pct) <- paste( filt_otu_5pct$OTU_ID, filt_species$species, sep = "_")
+
+#add a pseudocount
+filt_otu_5pct[filt_otu_5pct==0] <- .000000001
+
+#Convert into a matrix for pheatmap  to work and get rid of OTU_ID
+otu_matrix <- as.matrix(filt_otu_5pct[,-1])
+
+#Transform into log scale so that you can work with your matrix
+otu_matrix_log <- log10(otu_matrix)
+
+#transpose matrix for PCA
+otu_mat_log <- t(otu_matrix_log)
+```
+
+```{r ordination annotation prep}
+#Create sample tables for each park
+#first park
+redwood_samps <- info %>%
+  filter(park == "Redwood_Regional") %>%
+  mutate(park = "Redwood_National")
+
+#second park
+anthony_samps <- info %>%
+  filter(park == "Anthony_Chabot_Regional") %>%
+  mutate(park = "MacDonald_Trail")
+```
+
+#Ordination plots
+```{r rlane_ticks_ordination}
+#Principle Component analysis of all rlane samples
+tick_PCA <- PCA(otu_mat_log)
+
+#Scree plot (how much variance is explained)
+fviz_screeplot(tick_PCA, addlabels = TRUE, ylim = c(0, 50))
+
+#Convert PCA object to a dataframe with the first two principle components for ggplot
+tick_pca_df <- as.data.frame(tick_PCA$ind$coord[,1:2]) %>% 
+  rownames_to_column(var = "rName") %>%
+  inner_join(info)
+
+#Plot as a point graph
+ggplot(tick_pca_df, aes(x=Dim.1, y=Dim.2, color=park, shape=sex)) +
+  geom_point(size=3) +
+  #geom_text(aes(label= rName),hjust=0, vjust=0)+
+  labs(color="Park", shape="Sex") +
+  scale_color_manual(labels = c("Anthony Chabot Regional", "Redwood Regional"), 
+                     breaks = c("Anthony Chabot Regional", "Redwood Regional"), 
+                     values = c("#E9869D", "#5E60CE")) + 
+  scale_shape_manual(labels = c("Female", "Male"), 
+                     breaks = c("female", "male"),
+                     values = c("circle", "triangle")) +
+  theme_bw()+
+  #labs(title= "PCA of Individual Ixodes pacificus Ticks in Northern California", color="Park", shape="Sex")+
+  theme(text = element_text(size = 15),axis.title = element_text(size = 15),axis.text = element_text(size = 15))
+ggsave('pca_ip_12042021.png', width = 10, height = 10)
+
+
+#stress plot
+#PCA is very sensitive to outliers. NmMDS is the next option
+mds <- metaMDS(t(otu_matrix_log), distance = "euclid")
+
+#ploting the distribution
+stressplot(mds)
+
+
+#Scree plot for NMDS
+# In this part, we define a function NMDS.scree() that automatically performs a NMDS for 1-10 dimensions and plots the nr of dimensions vs the stress
+NMDS.scree <- function(x) { #where x is the name of the data frame variable
+  plot(rep(1, 10), replicate(10, metaMDS(x, autotransform = F, k = 1)$stress), xlim = c(1, 10),ylim = c(0, 0.30), xlab = "# of Dimensions", ylab = "Stress", main = "NMDS stress plot")
+  for (i in 1:10) {
+    points(rep(i + 1,10),replicate(10, metaMDS(x, autotransform = F, k = i + 1)$stress))
+  }
+}
+
+# Use the function that we just defined to choose the optimal nr of dimensions
+NMDS.scree(dist(t(otu_matrix_log)))
+
+#Convert to table for ggploting
+mds_df <- as.data.frame(mds$points) %>%
+  rownames_to_column(var='rName') %>%
+  inner_join(info)
+
+#Since a PCA is very sensitive, we could do NMDS plots instead.
+#JE: Actually doesn't look too bad
+ggplot(mds_df, aes(x=MDS1, y=MDS2, color=park, shape=sex)) + 
+  geom_point(size=3) +
+  #geom_text(aes(label= rName),hjust=0, vjust=0)+
+  labs(color="Park", shape="Sex") +
+  scale_color_manual(labels = c("Anthony Chabot Regional", "Redwood Regional"), 
+                     breaks = c("Anthony Chabot Regional", "Redwood Regional"), 
+                     values = c("#E9869D", "#5E60CE")) + 
+  scale_shape_manual(labels = c("Female", "Male"), 
+                     breaks = c("female", "male"),
+                     values = c("circle", "triangle")) +
+  theme_bw()
+ggsave("nmMDS_rticks_12042024.png", width = 6, height = 6, units = "in")
+```

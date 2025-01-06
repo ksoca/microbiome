@@ -1,0 +1,168 @@
+---
+title: "Figure 6"
+author: "Kayla M. Socarras"
+date: "2024-12-31"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (!require("pacman")) install.packages("pacman", "CRAN")
+library(pacman)
+
+#Clear Packages
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
+
+pacman::p_load(knitr, ggplot2, gplots, ggtree, tibble, tidytree, dplyr, tidyr, readr, harrietr, pheatmap, viridis, RColorBrewer, factoextra, FactoMineR, tidyselect, M3C, vegan, ggpubr, caret )
+
+#Heatmap saving function
+save_pheatmap_png <- function(x, filename, width=10, height=10, res = 300) {
+  png(filename, width = width, height = height, res = res, units = "in")
+  grid::grid.newpage()
+  grid::grid.draw(x$gtable)
+  dev.off()
+}
+``` 
+
+```{r load_data }
+#Load the main files you will need.
+all_samples_table <-read_tsv("../data/post_final_results_updated.tsv")
+info<-read_csv("../data/meta_sample.csv")
+```
+
+```{r data filtering and wrangling}
+#Make a ixodes pacificus tick table and remove non-count columns
+otu_count_table <- all_samples_table %>%
+  select(-domain:-num_of_otus_with_same_sp, -size) %>%
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "count")  %>%
+  inner_join(select(info, rName)) %>%
+  group_by(OTU_ID) %>%
+  mutate(total = sum(count)) %>% 
+  ungroup() %>%
+  filter(total > 0) %>% #get rid of OTU no longer present
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = count)
+
+#Create a control sample vector
+control_samps <- info %>%
+  filter(type == "control")
+
+#Create a taxonomic info table
+otu_tax_info <- all_samples_table %>%
+  select(OTU_ID, domain:num_of_otus_with_same_sp)
+
+#identify maximum OTU counts found in negative controls
+max_ctrl_counts <- all_samples_table %>%  
+   select(-size, -domain:-num_of_otus_with_same_sp, species) %>% 
+   pivot_longer(cols = c(-species, -OTU_ID), names_to = "rName", values_to = "counts") %>%  
+   inner_join(info) %>% 
+   filter(collaborator == "lane" & type == "control") %>% 
+   group_by(OTU_ID) %>%
+   summarize(max_ctrl = max(counts)) %>% 
+   ungroup() %>%
+   filter(max_ctrl > 0) %>%
+  inner_join(select(otu_tax_info, OTU_ID, species))
+
+#remove the number of counts of each OTU found in negative controls and filter out OTU at low percent abundance (for heatmap, this is 5%)
+#5pct = 5 percent
+filt_otu_5pct <- otu_count_table %>% 
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "counts") %>%
+  full_join(select(max_ctrl_counts, OTU_ID, max_ctrl)) %>% #join with max control otu counts
+  replace_na(list(max_ctrl=0)) %>% #missing max control otu counts should just be zero
+  mutate(count_no_ctrl = if_else((counts - max_ctrl)<0,true=0,false=counts-max_ctrl)) %>% #modify sample counts by subtracting off max control otu counts - if that would be a negative value, it's just zero 
+  filter(!rName %in% control_samps$rName) %>% 
+  group_by(rName) %>%
+  mutate(samp_num_reads = sum(count_no_ctrl)) %>% 
+  filter(samp_num_reads > 100) %>% 
+  mutate(percent_otu = count_no_ctrl/samp_num_reads) %>% 
+  ungroup() %>%
+  group_by(OTU_ID) %>%
+  mutate(percent_max = max(percent_otu)) %>% 
+  ungroup() %>%
+  filter(percent_max > .05) %>% #setting this to 5% for heatmap, but probably want 1% for diversity metrics
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = percent_otu) %>%
+  as.data.frame()
+
+filt_species <- filt_otu_5pct %>%
+  inner_join(select(otu_tax_info, OTU_ID, species)) %>%
+  select(species)
+
+row.names(filt_otu_5pct) <- paste( filt_otu_5pct$OTU_ID, filt_species$species, sep = "_")
+
+#add a pseudocount
+filt_otu_5pct[filt_otu_5pct==0] <- .000000001
+
+#Convert into a matrix for pheatmap  to work and get rid of OTU_ID
+otu_matrix <- as.matrix(filt_otu_5pct[,-1])
+
+#Transform into log scale so that you can work with your matrix
+otu_matrix_log <- log10(otu_matrix)
+
+#transpose matrix for PCA
+otu_mat_log <- t(otu_matrix_log)
+```
+```{r}
+#We can label any heatmaps created through creating and using a cusotm annotation label.
+rl_info_no_ctrl <- filter(info, type != 'control')
+tick_annotation <- data.frame(Location=rl_info_no_ctrl$park, Sex=rl_info_no_ctrl$sex, stringsAsFactors = FALSE, row.names = rl_info_no_ctrl$rName)
+
+#Create a similar dataframe for the row (OTU) annotation.
+otu_annotation <- select(all_samples_table, OTU_ID, species, genus_conf, species_conf) %>%
+  mutate(otu_unique_name = paste(OTU_ID, species, sep = "_"))
+otu_annotation <- data.frame(row.names = otu_annotation$otu_unique_name, select(otu_annotation, genus_conf, species_conf))
+
+#R has horrible defaults so you will need to define color palettes. This is how you do so for pheatmap.
+annotation_colors = list(
+  Location = c('Redwood Regional' = "#5E60CE", 'Anthony Chabot Regional' ="#E9869D"),
+  Sex = c('female' = "#FFBD00", 'male'= "#BBDDA6")) 
+```
+
+
+#Beta diversity work
+```{r Ixodes pacificus beta diversity}
+#to create a beta diversity heatmap we will need to first create a distance matrix (euclidean here)
+rl_dist = vegdist(t(otu_matrix_log), method="euclid")
+
+#Heirarchically cluster the distance matrix
+rl_hc = hclust(rl_dist)
+
+#Heatmap of euclidean distance matrix
+rl_eclud_distance <- pheatmap(mat=as.matrix(rl_dist),
+        cluster_cols = rl_hc,
+        cluster_rows = rl_hc,
+        fontsize = 5,
+        border_color = "grey60",
+         cellwidth = 4.5, 
+         cellheight = 4.5,
+         fontsize_row = 5, 
+         fontsize_col= 5,
+        annotation_col = tick_annotation,
+        annotation_colors = annotation_colors,
+         main="Beta diverisity Among Ixodes pacificus Ticks (Euclidian distance)"
+        )
+#Save the beta diversity euclidean based heatmap
+save_pheatmap_png(rl_eclud_distance, filename = "../output/figures/eucliddist_heatmap_3092021.png", width = 8, height = 8)
+
+#create a distance matrix using bray-curtis
+rl_dist = vegdist(t(otu_matrix), method="bray")
+
+#Heirarchically cluster the distance matrix
+rl_hc = hclust(rl_dist)
+
+#Heatmap of bray-curtis distance matrix
+rl_bc_distance <- pheatmap(mat=as.matrix(rl_dist),
+        cluster_cols = rl_hc,
+        cluster_rows = rl_hc,
+        fontsize = 5,
+        border_color = "grey60",
+        cellwidth = 4.5, 
+        cellheight = 4.5,
+        fontsize_row = 5, 
+        fontsize_col= 5,
+        annotation_col = tick_annotation,
+        annotation_colors = annotation_colors,
+         main="Beta diversity Among Ixodes pacificus Ticks in Norhtern Califronia  (Bray-Curtis distance metric)"
+         )
+#Save heatmap
+save_pheatmap_png(rl_bc_distance, filename = "../output/figures/braycurtis_heatmap_sex_loc_3092020.png", width = 8, height = 8)
+```

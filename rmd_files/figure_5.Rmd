@@ -1,0 +1,182 @@
+---
+title: "Figure 5"
+author: "Kayla M. Socarras"
+date: "2024-12-30"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (!require("pacman")) install.packages("pacman", "CRAN")
+library(pacman)
+
+#Clear Packages
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
+
+pacman::p_load(knitr, ggplot2, gplots, ggtree, tibble, tidytree, dplyr, tidyr, readr, harrietr, pheatmap, viridis, RColorBrewer, factoextra, FactoMineR, tidyselect, M3C, vegan, ggpubr, caret )
+
+#Heatmap saving function
+save_pheatmap_png <- function(x, filename, width=10, height=10, res = 300) {
+  png(filename, width = width, height = height, res = res, units = "in")
+  grid::grid.newpage()
+  grid::grid.draw(x$gtable)
+  dev.off()
+}
+```
+
+```{r load_data }
+#Load the main files you will need.
+all_samples_table <-read_tsv("../data/post_final_results_updated.tsv")
+info<-read_csv("../data/meta_sample.csv")
+```
+
+```{r data filtering and wrangling}
+#Make a ixodes pacificus tick table and remove non-count columns
+otu_count_table <- all_samples_table %>%
+  select(-domain:-num_of_otus_with_same_sp, -size) %>%
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "count")  %>%
+  inner_join(select(info, rName)) %>%
+  group_by(OTU_ID) %>%
+  mutate(total = sum(count)) %>% 
+  ungroup() %>%
+  filter(total > 0) %>% #get rid of OTU no longer present
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = count)
+
+#Create a control sample vector
+control_samps <- info %>%
+  filter(type == "control")
+
+#Create a taxonomic info table
+otu_tax_info <- all_samples_table %>%
+  select(OTU_ID, domain:num_of_otus_with_same_sp)
+
+#identify maximum OTU counts found in negative controls
+max_ctrl_counts <- all_samples_table %>%  
+   select(-size, -domain:-num_of_otus_with_same_sp, species) %>% 
+   pivot_longer(cols = c(-species, -OTU_ID), names_to = "rName", values_to = "counts") %>%  
+   inner_join(info) %>% 
+   filter(collaborator == "lane" & type == "control") %>% 
+   group_by(OTU_ID) %>%
+   summarize(max_ctrl = max(counts)) %>% 
+   ungroup() %>%
+   filter(max_ctrl > 0) %>%
+  inner_join(select(otu_tax_info, OTU_ID, species))
+
+#the same, but counts, not percentages (for diversity)
+filt_otu_1pct_count <- otu_count_table %>% 
+  pivot_longer(cols = -OTU_ID, names_to = "rName", values_to = "counts") %>%
+  full_join(select(max_ctrl_counts, OTU_ID, max_ctrl)) %>% #join with max control otu counts
+  replace_na(list(max_ctrl=0)) %>% #missing max control otu counts should just be zero
+  mutate(count_no_ctrl = if_else((counts - max_ctrl)<0,true=0,false=counts-max_ctrl)) %>% #modify sample counts by subtracting off max control otu counts - if that would be a negative value, it's just zero 
+  filter(!rName %in% control_samps$rName) %>% 
+  group_by(rName) %>%
+  mutate(samp_num_reads = sum(count_no_ctrl)) %>% 
+  filter(samp_num_reads > 100) %>% #remove samples with too few reads
+  mutate(percent_otu = count_no_ctrl/samp_num_reads) %>% 
+  ungroup() %>%
+  group_by(OTU_ID) %>%
+  mutate(percent_max = max(percent_otu)) %>% 
+  ungroup() %>%
+  filter(percent_max > .01) %>% #setting this to 5% for heatmap, but probably want 1% for diversity metrics
+  pivot_wider(id_cols = OTU_ID, names_from = rName, values_from = count_no_ctrl) %>%
+  as.data.frame()
+```
+
+
+#alpha diversity work version 1
+```{r species_level_analysis }
+#alpha diversity:  estimated diversity metrics
+#combine otu by species (1 percent abundance, filtered)
+species_count_table <- filt_otu_1pct_count %>%
+  inner_join(otu_tax_info) %>% 
+  select(starts_with("t_"), species) %>% 
+  pivot_longer(cols = -species, names_to = "strain", values_to = "counts") %>%  
+  group_by(species, strain) %>%
+  summarize(species_counts = sum(counts)) %>% 
+  pivot_wider(names_from = strain, values_from = species_counts) %>% 
+  ungroup()
+
+shannon_species <- diversity(species_count_table[,-1], index = "shannon", MARGIN = 2) %>% 
+  as.data.frame() 
+names(shannon_species) <- "shannon"
+
+shannon_species <- shannon_species %>%
+  rownames_to_column(var = "rName") %>%
+  inner_join(info) %>%
+  mutate(effective_number = exp(shannon))
+
+ggplot(shannon_species, aes(y=effective_number, x=park, color=sex)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(position = position_jitterdodge()) +
+  theme_bw() +
+  labs(y="Effective Number of Species", x="Park", color = "Sex")+
+  scale_color_manual(labels = c("Female", "Male"), 
+                     breaks = c("female", "male"),
+                    values = c("#FFBD00", "#BBDDA6")) +
+  stat_compare_means(method = "wilcox.test")
+ ggsave('../output/figures/v1species_shannon_diversity_12052024.png', width = 6, height = 6)
+```
+```{r genus_level_analysis}
+#1 pct filtered shannon diversity for family level
+genus_count_table <- filt_otu_1pct_count %>%
+  inner_join(otu_tax_info) %>% 
+  select(starts_with("t_"), genus) %>% 
+  pivot_longer(cols = -genus, names_to = "strain", values_to = "counts") %>%  
+  group_by(genus, strain) %>%
+  summarize(genus_counts = sum(counts)) %>% 
+  pivot_wider(names_from = strain, values_from = genus_counts) %>% 
+  ungroup()
+
+shannon_genus <- diversity(genus_count_table[,-1], index = "shannon", MARGIN = 2) %>% 
+  as.data.frame() 
+names(shannon_genus) <- "shannon"
+
+shannon_genus <- shannon_genus %>%
+  rownames_to_column(var = "rName") %>%
+  inner_join(info) %>%
+  mutate(effective_number = exp(shannon))
+
+# this is the unfiltered plot for the ticks
+ggplot(shannon_genus, aes(y=effective_number, x=park, color=sex)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(position = position_jitterdodge()) +
+  theme_bw() +
+  labs(y="Effective Number of Family", x="Park", color = "Sex")+
+  scale_color_manual(labels = c("Female", "Male"), 
+                     breaks = c("female", "male"),
+                    values = c("#FFBD00", "#BBDDA6")) +
+  stat_compare_means(method = "wilcox.test")
+ ggsave('../output/figures/v1genus_shannon_diversity_12052024.png', width = 6, height = 6)
+```
+```{r family_level_analysis}
+#1 pct filtered shannon diversity for family level
+family_count_table <- filt_otu_1pct_count %>%
+  inner_join(otu_tax_info) %>% 
+  select(starts_with("t_"), family) %>% 
+  pivot_longer(cols = -family, names_to = "strain", values_to = "counts") %>%  
+  group_by(family, strain) %>%
+  summarize(family_counts = sum(counts)) %>% 
+  pivot_wider(names_from = strain, values_from = family_counts) %>% 
+  ungroup()
+
+shannon_family <- diversity(family_count_table[,-1], index = "shannon", MARGIN = 2) %>% 
+  as.data.frame() 
+names(shannon_family) <- "shannon"
+
+shannon_family <- shannon_family %>%
+  rownames_to_column(var = "rName") %>%
+  inner_join(info) %>%
+  mutate(effective_number = exp(shannon))
+
+# this is the unfiltered plot for the ticks
+ggplot(shannon_family, aes(y=effective_number, x=park, color=sex)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(position = position_jitterdodge()) +
+  theme_bw() +
+  labs(y="Effective Number of Family", x="Park", color = "Sex")+
+  scale_color_manual(labels = c("Female", "Male"), 
+                     breaks = c("female", "male"),
+                    values = c("#FFBD00", "#BBDDA6")) +
+  stat_compare_means(method = "wilcox.test")
+ ggsave('../output/figures/v1family_shannon_diversity_12052024.png', width = 6, height = 6)
+```
