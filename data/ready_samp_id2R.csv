@@ -1,0 +1,377 @@
+﻿sample,rName,r_num,original_samp_ID,bc,cell,runID,type,host,collaborator,institution,proj,stage,sex,park,town,county,state,environment,animal,antibiotic,group
+10-23r,t_1,1,10-23r,,,,terk,,terk,,terk,,,,,,,,,,
+14-30r,t_2,2,14-30r,,,,terk,,terk,,terk,,,,,,,,,,
+13-30l,t_3,3,13-30l,,,,terk,,terk,,terk,,,,,,,,,,
+12-27r,t_4,4,12-27r,,,,terk,,terk,,terk,,,,,,,,,,
+15-24l,t_5,5,15-24l,,,,terk,,terk,,terk,,,,,,,,,,
+11-27l,t_6,6,11-27l,,,,terk,,terk,,terk,,,,,,,,,,
+16-24r,t_7,7,16-24r,,,,terk,,terk,,terk,,,,,,,,,,
+17-34l,t_8,8,17-34l,,,,terk,,terk,,terk,,,,,,,,,,
+18-34r,t_9,9,18-34r,,,,terk,,terk,,terk,,,,,,,,,,
+20-21r,t_10,10,20-21r,,,,terk,,terk,,terk,,,,,,,,,,
+21-22l-1,t_11,11,21-22l-1,,,,terk,,terk,,terk,,,,,,,,,,
+22-22r-1,t_12,12,22-22r-1,,,,terk,,terk,,terk,,,,,,,,,,
+23-28l,t_13,13,23-28l,,,,terk,,terk,,terk,,,,,,,,,,
+24-28r,t_14,14,25-36l,,,,terk,,terk,,terk,,,,,,,,,,
+25-36l,t_15,15,24-28r,,,,terk,,terk,,terk,,,,,,,,,,
+26-36r,t_16,16,26-36r,,,,terk,,terk,,terk,,,,,,,,,,
+27-33l,t_17,17,28-33r,,,,terk,,terk,,terk,,,,,,,,,,
+28-33r,t_18,18,27-33l,,,,terk,,terk,,terk,,,,,,,,,,
+29-22l-2,t_19,19,29-22l-2,,,,terk,,terk,,terk,,,,,,,,,,
+30-22r-2,t_20,20,30-22r-2,,,,terk,,terk,,terk,,,,,,,,,,
+31_something,t_21,21,31_something,,,,terk_control,,terk,,tick,,,,,,,,,,
+32_isolation_control,t_22,22,32_isolation_control,,,,terk_control,,terk,,control,,,,,,,,,,
+4-37r,t_23,23,4-37r,,,,terk,,terk,,terk,,,,,,,,,,
+5-31l,t_24,24,5-31l,,,,terk,,terk,,terk,,,,,,,,,,
+6-31r,t_25,25,6-31r,,,,terk,,terk,,terk,,,,,,,,,,
+8-32r,t_26,26,8-32r,,,,terk,,terk,,terk,,,,,,,,,,
+9-23l,t_27,27,9-23l,,,,terk,,terk,,terk,,,,,,,,,,
+pcr_control_bkI,t_28,28,pcr_control_bkI,,,,terk_control,,terk,,control,,,,,,,,,,
+pcr_control_bkII,t_29,29,pcr_control_bkII,,,,terk_control,,terk,,control,,,,,,,,,,
+pcr_control_bkIII,t_30,30,pcr_control_bkIII,,,,terk_control,,terk,,control,,,,,,,,,,
+H20_ampli_control_3,t_31,31,H20_ampli_control_3,,,,terk_control,,terk,,control,,,,,,,,,,
+pcr_control_bkIV,t_32,32,pcr_control_bkIV,,,,terk_control,,terk,,control,,,,,,,,,,
+TERK_11R,t_33,33,TERK_11R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_12L,t_34,34,TERK_12L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_12R,t_35,35,TERK_12R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_13R,t_36,36,TERK_13R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_14L,t_37,37,TERK_14L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_15L,t_38,38,TERK_15L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_15R,t_39,39,TERK_15R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_16L,t_40,40,TERK_16L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_17L,t_41,41,TERK_17L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_17R,t_42,42,TERK_17R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_19L,t_43,43,TERK_19L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_20L,t_44,44,TERK_20L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_20R,t_45,45,TERK_20R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK302,t_46,46,TERK302,,,,terk,,terk,,terk,,,,,,,,,,
+TERK304,t_47,47,TERK304,,,,terk,,terk,,terk,,,,,,,,,,
+TERK305,t_48,48,TERK305,,,,terk,,terk,,terk,,,,,,,,,,
+TERK307,t_49,49,TERK307,,,,terk,,terk,,terk,,,,,,,,,,
+TERK308,t_50,50,TERK308,,,,terk,,terk,,terk,,,,,,,,,,
+TERK311,t_51,51,TERK311,,,,terk,,terk,,terk,,,,,,,,,,
+TERK314,t_52,52,TERK314,,,,terk,,terk,,terk,,,,,,,,,,
+TERK315,t_53,53,TERK315,,,,terk,,terk,,terk,,,,,,,,,,
+TERK316,t_54,54,TERK316,,,,terk,,terk,,terk,,,,,,,,,,
+TERK318,t_55,55,TERK318,,,,terk,,terk,,terk,,,,,,,,,,
+TERK324,t_56,56,TERK324,,,,terk,,terk,,terk,,,,,,,,,,
+TERK325,t_57,57,TERK325,,,,terk,,terk,,terk,,,,,,,,,,
+TERK326,t_58,58,TERK326,,,,terk,,terk,,terk,,,,,,,,,,
+TERK328,t_59,59,TERK328,,,,terk,,terk,,terk,,,,,,,,,,
+TERK332,t_60,60,TERK332,,,,terk,,terk,,terk,,,,,,,,,,
+TERK334,t_61,61,TERK334,,,,terk,,terk,,terk,,,,,,,,,,
+TERK335,t_62,62,TERK335,,,,terk,,terk,,terk,,,,,,,,,,
+TERK336,t_63,63,TERK336,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_3L,t_64,64,TERK_3L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_3R,t_65,65,TERK_3R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_6L,t_66,66,TERK_6L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_6R,t_67,67,TERK_6R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_8L,t_68,68,TERK_8L,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_8R,t_69,69,TERK_8R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_9R,t_70,70,TERK_9R,,,,terk,,terk,,terk,,,,,,,,,,
+TERK_control1,t_71,71,TERK_control1,,,,terk_control,,terk,,control,,,,,,,,,,
+tick10,t_72,72,tick10,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,holmdel,monmouth,New Jersey,,,,No
+tick11,t_73,73,tick11,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,milltown,middlesex,New Jersey,,,,No
+tick12,t_74,74,tick12,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,stroudsburg,monroe,Pennsylvania,,,,No
+tick13,t_75,75,tick13,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,clarks_summit,lackawanna,Pennsylvania,,,,No
+tick14,t_76,76,tick14,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,male,no,mahwah,bergen,New Jersey,,,,No
+tick15,t_77,77,tick15,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,male,no,stroudsburg,monroe,Pennsylvania,,,,No
+tick16,t_78,78,tick16,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,ardmore,montgomery,Pennsylvania,,,,No
+tick17,t_79,79,tick17,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,mechanicsburg,cumberland,Pennsylvania,,,,No
+tick19,t_80,80,tick19,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,male,no,bethlehem,northampton,Pennsylvania,,,,No
+tick1,t_81,81,tick1,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,male,no,mt_laurel,burlington,New Jersey,,,,No
+tick20,t_82,82,tick20,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,female,no,,Millerton,Pennsylvania,,,,No
+tick21,t_83,83,tick21,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,female,no,jackson,ocean,New Jersey,,,,No
+tick22,t_84,84,tick22,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,allenwood,monmouth,New Jersey,,,,No
+tick23,t_85,85,tick23,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,sewickley,allegheny ,Pennsylvania,,,,No
+tick24,t_86,86,tick24,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,male,no,stafford Twp.,ocean,New Jersey,,,,No
+tick25,t_87,87,tick25,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,freehold,monmouth,New Jersey,,,,No
+tick26,t_88,88,tick26,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,larva,,no,milford,pike,Pennsylvania,,,,No
+tick27,t_89,89,tick27,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,helmetta,middlesex,New Jersey,,,,No
+tick28,t_90,90,tick28,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,female,no,effort,monroe,Pennsylvania,,,,No
+tick2,t_91,91,tick2,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,,male,no,scroton,monroe,Pennsylvania,,,,No
+tick30,t_92,92,tick30,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,female,no,voorhees,camden,New Jersey,,,,No
+tick31,t_93,93,tick31,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,washington,washington,Pennsylvania,,,,No
+tick32,t_94,94,tick32,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,pittsburgh,allegheny,Pennsylvania,,,,No
+tick33,t_95,95,tick33,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,randolph,morris,New Jersey,,,,No
+tick34,t_96,96,tick34,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,exton,chester,Pennsylvania,,,,No
+tick35,t_97,97,tick35,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,meadowbrook,montgomery,Pennsylvania,,,,No
+tick36,t_98,98,tick36,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,harleysville,montgomery,Pennsylvania,,,,No
+tick37,t_99,99,tick37,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,tunkhannock,wyoming,Pennsylvania,,,,No
+tick38,t_100,100,tick38,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,newtown,bucks,Pennsylvania,,,,No
+tick39,t_101,101,tick39,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,biglerville,adams,Pennsylvania,,,,No
+tick3,t_102,102,tick3,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,male,no,,bradford,Pennsylvania,,,,No
+tick40,t_103,103,tick40,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,shippensburg,cumberland,Pennsylvania,,,,No
+tick41,t_104,104,tick41,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,bridgewater,beaver,New Jersey,,,,No
+tick42,t_105,105,tick42,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,windsor,york,Pennsylvania,,,,No
+tick43,t_106,106,tick43,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,wind_gap,northampton,Pennsylvania,,,,No
+tick44,t_107,107,tick44,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,aspers,adams,Pennsylvania,,,,No
+tick45,t_108,108,tick45,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,nazareth,northampton,Pennsylvania,,,,No
+tick46,t_109,109,tick46,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,bushkill,pike,Pennsylvania,,,,No
+tick47,t_110,110,tick47,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,saddle_river,bergen,New Jersey,,,,No
+tick48,t_111,111,tick48,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,wyckoff,bergen,New Jersey,,,,No
+tick49,t_112,112,tick49,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,brodheadsville,monroe,Pennsylvania,,,,No
+tick4,t_113,113,tick4,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,female,no,wrightstown,burlington,New Jersey,,,,No
+tick50,t_114,114,tick50,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,hawley,pike,Pennsylvania,,,,No
+tick52,t_115,115,tick52,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,lords_valley,pike,Pennsylvania,,,,No
+tick51,t_116,116,tick51,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,wind_gap,northampton,Pennsylvania,,,,No
+tick54,t_117,117,tick54,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,stroudsburg,monroe,Pennsylvania,,,,No
+tick55,t_118,118,tick55,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,pocono_lake,monroe,Pennsylvania,,,,No
+tick56,t_119,119,tick56,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,alpine,bergen,New Jersey,,,,No
+tick57,t_120,120,tick57,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,buck_hill_falls,monroe,Pennsylvania,,,,No
+tick58,t_121,121,tick58,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,montrose,susquehanna,Pennsylvania,,,,No
+tick59,t_122,122,tick59,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,female,no,tannersville,monroe,Pennsylvania,,,,No
+tick5,t_123,123,tick5,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,male,no,rumson,monmouth,New Jersey,,,,No
+tick60,t_124,124,tick60,,,,tick,Dermacentor variabilis,chinnichi,ESU,tick,adult,male,no,shade_gap,huntingdon,Pennsylvania,,,,No
+tick61,t_125,125,tick61,,,,tick,Ixodes scapularis,chinnichi,ESU,tick,nymph,,no,springbrook twp.,lackawanna,Pennsylvania,,,,No
+tick62,t_126,126,tick62,,,,tick,Ixodes scapularis,chinnichi,ESU,tick,adult,female,no,pittsburgh,allegheny,Pennsylvania,,,,No
+tick64,t_127,127,tick64,,,,tick,Ixodes scapularis,chinnichi,ESU,tick,,female,no,stroudsburg,monroe,Pennsylvania,,,,No
+tick65,t_128,128,tick65,,,,tick,Ixodes scapularis,chinnichi,ESU,tick,,female,no,east stroudsburg,monroe,Pennsylvania,,,,No
+tick66,t_129,129,tick66,,,,tick,Ixodes scapularis,chinnichi,ESU,tick,,female,no,bellefonte,centre,Pennsylvania,,,,No
+tick67,t_130,130,tick67,,,,tick,Ixodes scapularis,chinnichi,ESU,tick,,female,no,pocono_lake,monroe,Pennsylvania,,,,No
+tick68,t_131,131,tick68,,,,tick,Ixodes scapularis,chinnichi,ESU,tick,,,no,bethlehem,northampton,Pennsylvania,,,,No
+tick69,t_132,132,tick69,,,,tick,Ixodes scapularis,chinnichi,ESU,tick,,female,no,mountainhome,monroe,Pennsylvania,,,,No
+tick6,t_133,133,tick6,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,female,no,mt_laurel,burlington ,New Jersey,,,,No
+tick7,t_134,134,tick7,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,,no,east_brunswick,middlesex,New Jersey,,,,No
+tick8,t_135,135,tick8,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,nymph,female,no,howell,monmouth,New Jersey,,,,No
+tick9,t_136,136,tick9,,,,tick,Amblyomma americanum,chinnichi,ESU,tick,adult,,no,northampton,northampton,Pennsylvania,,,,No
+TT001_13_30l,t_137,137,TT001_13_30l,,,,terk,,,,terk,,,,,,,,,,
+TT001_tick_123,t_138,138,TT001_tick_123,,,,tick,ixodes_scapularis,mcguire,,tick,,,,,,,,no,no,no
+TT001_tick_55,t_139,139,TT001_tick_55,,,,tick,ixodes_scapularis,vandergrift,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT001_tick_56,t_140,140,TT001_tick_56,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT002_21_22l_1,t_141,141,TT002_21_22l_1,,,,terk,,,,terk,,,,,,,,,,
+TT002_5_31l,t_142,142,TT002_5_31l,,,,terk,,,,terk,,,,,,,,,,
+TT002_tick_126,t_143,143,TT002_tick_126,,,,tick,amblyomma_americanum,,,tick,,,,,,,,,,
+TT002_tick_79,t_144,144,TT002_tick_79,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT003_15_24l,t_145,145,TT003_15_24l,,,,terk,,,,terk,,,yes,,university_park,PA,grass,no,no,yes
+TT003_27_33l,t_146,146,TT003_27_33l,,,,terk,,,,terk,,,,,,,,,,
+TT003_tick_130,t_147,147,TT003_tick_130,,,,tick,dermacentor_variabilis,,,tick,,,,,,,,,,
+TT003_tick_82,t_148,148,TT003_tick_82,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT004_14_30r,t_149,149,TT004_14_30r,,,,terk,,,,terk,,,,,,,,,,
+TT004_25_36l,t_150,150,TT004_25_36l,,,,terk,,,,terk,,,,,,,,,,
+TT004_tick_124,t_151,151,TT004_tick_124,,,,tick,amblyomma_americanum,,,tick,,,,,,,,,,no
+TT005_28_33r,t_152,152,TT005_28_33r,,,,terk,,,,terk,,,,,,,,,,
+TT005_6_31r,t_153,153,TT005_6_31r,,,,terk,,,,terk,,,,,,,,,,
+TT005_tick_127,t_154,154,TT005_tick_127,,,,tick,amblyomma_americanum,,,tick,,,,,,,,,,no
+TT005_tick_89,t_155,155,TT005_tick_89,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT006_16_24r,t_156,156,TT006_16_24r,,,,terk,,,,terk,,,,,,,,,,
+TT006_tick_129,t_157,157,TT006_tick_129,,,,tick,dermacentor_variabilis,,,tick,,,,,,,,,,no
+TT006_tick_87,t_158,158,TT006_tick_87,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT007_18_34r,t_159,159,TT007_18_34r,,,,terk,,,,terk,,,,,,,,,,
+TT007_tick_122,t_160,160,TT007_tick_122,,,,tick,ixodes_scapularis,,,tick,,,,,,,,,,
+TT007_tick_62,t_161,161,TT007_tick_62,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT008_19_21l,t_162,162,TT008_19_21l,,,,terk,,,,terk,,,,,,,,,,
+TT008_tick_106,t_163,163,TT008_tick_106,,,,terk,,,,tick,,,,,,,,,,
+TT008_tick_91,t_164,164,TT008_tick_91,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park ,PA,grass,no,no,yes
+TT009_17_34l,t_165,165,TT009_17_34l,,,,terk,,,,terk,,,,,,,,,,
+TT009_22_22r_1,t_166,166,TT009_22_22r_1,,,,terk,,,,terk,,,,,,,,,,
+TT009_tick_105,t_167,167,TT009_tick_105,,,,tick,ixodes_scapularis,,,tick,,,,,,,,,,
+TT009_tick_95,t_168,168,TT009_tick_95,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT010_20_21r,t_169,169,TT010_20_21r,,,,terk,,,,terk,,,,,,,,,,
+TT010_8_32r,t_170,170,TT010_8_32r,,,,terk,,,,terk,,,,,,,,,,
+TT010_tick_128,t_171,171,TT010_tick_128,,,,tick,amblyomma_americanum,,,tick,,,,,,,,,,
+TT010_tick_97,t_172,172,TT010_tick_97,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass, no,no,yes
+TT011_12_27r,t_173,173,TT011_12_27r,,,,terk,,,,terk,,,,,,,,,,
+TT011_32_isolation_control,t_174,174,TT011_32_isolation_control,,,,terk,,,,control,,,,,,,,,,
+TT011_tick_109,t_175,175,TT011_tick_109,,,,tick,ixodes_scapularis,,,tick,,,,,,,,,,
+TT011_tick_90,t_176,176,TT011_tick_90,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT012_30_22r_2,t_177,177,TT012_30_22r_2,,,,terk,,,,terk,,,,,,,,,,
+TT012_tick_78,t_178,178,TT012_tick_78,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT013_tick_52,t_179,179,TT013_tick_52,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT013_tick_96,t_180,180,TT013_tick_96,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT014_tick_48,t_181,181,TT014_tick_48,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT014_tick_81,t_182,182,TT014_tick_81,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT016_29_22l_2,t_183,183,TT016_29_22l_2,,,,terk,,,,terk,,,,,,,,,,
+TT016_tick_63,t_184,184,TT016_tick_63,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT017_tick_51,t_185,185,TT017_tick_51,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT017_tick_64,t_186,186,TT017_tick_64,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT018_tick_61,t_187,187,TT018_tick_61,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT019_11_27l,t_188,188,TT019_11_27l,,,,terk,,,,terk,,,,,,,,,,
+TT019_23_28l,t_189,189,TT019_23_28l,,,,terk,,,,terk,,,,,,,,,,
+TT019_tick_94,t_190,190,TT019_tick_94,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT020_tick_44,t_191,191,TT020_tick_44,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT021_31_something,t_192,192,TT021_31_something,,,,terk,,,,tick,,,,,,,,,,
+TT021_7_32l,t_193,193,TT021_7_32l,,,,terk,,,,terk,,,,,,,,,,
+TT021_tick_103,t_194,194,TT021_tick_103,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT022_24_28r,t_195,195,TT022_24_28r,,,,terk,,,,terk,,,,,,,,,,
+TT022_4_37r,t_196,196,TT022_4_37r,,,,terk,,,,terk,,,,,,,,,,
+TT022_tick_102,t_197,197,TT022_tick_102,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT023_tick_101,t_198,198,TT023_tick_101,,,,tick,ixodes_scapularis,,,tick,adult,female,yes,,university_park,PA,grass,no,no,yes
+TT024_10_23r,t_199,199,TT024_10_23r,,,,terk,,,,terk,,,,,,,,,,
+TT024_2_35r,t_200,200,TT024_2_35r,,,,terk,,,,terk,,,,,,,,,,
+TT024_tick_107,t_201,201,TT024_tick_107,,,,tick,ixodes_scapularis,,,tick,adult,,,,,,,no,,no
+TT025_control_1,t_202,202,TT025_control_1,,,,control,,,,control,,,,,,,,,,
+TT025_control_2,t_203,203,TT025_control_2,,,,control,,,,control,,,,,,,,,,
+TT025_control_3,t_204,204,TT025_control_3,,,,control,,,,control,,,,,,,,,,
+rLane_NC1,t_205,205,rLane_NC1,lbc16,C01,r54257_20200316_171956,control,,lane,UCB,tick,,,,,,,,,,
+rLane_1,t_206,206,rLane_1,lbc17,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_2,t_207,207,rLane_2,lbc18,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_3,t_208,208,rLane_3,lbc19,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_4,t_209,209,rLane_4,lbc21,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_5,t_210,210,rLane_5,lbc22,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_6,t_211,211,rLane_6,lbc24,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_7,t_212,212,rLane_7,lbc25,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_8,t_213,213,rLane_8,lbc26,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_9,t_214,214,rLane_9,lbc27,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_10,t_215,215,rLane_10,lbc28,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_11,t_216,216,rLane_11,lbc29,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_12,t_217,217,rLane_12,lbc30,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_13,t_218,218,rLane_13,lbc32,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_14,t_219,219,rLane_14,lbc34,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_15,t_220,220,rLane_15,lbc35,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_16,t_221,221,rLane_16,lbc37,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_41,t_222,222,rLane_41,lbc38,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_42,t_223,223,rLane_42,lbc39,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_43,t_224,224,rLane_43,lbc40,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_44,t_225,225,rLane_44,lbc42,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_45,t_226,226,rLane_45,lbc43,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_46,t_227,227,rLane_46,lbc44,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_47,t_228,228,rLane_47,lbc49,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_48,t_229,229,rLane_48,lbc50,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_49,t_230,230,rLane_49,lbc51,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_50,t_231,231,rLane_50,lbc52,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_51,t_232,232,rLane_51,lbc53,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_52,t_233,233,rLane_52,lbc54,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_53,t_234,234,rLane_53,lbc56,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_54,t_235,235,rLane_54,lbc58,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_55,t_236,236,rLane_55,lbc59,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_56,t_237,237,rLane_56,lbc60,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_57,t_238,238,rLane_57,lbc61,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_58,t_239,239,rLane_58,lbc62,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_59,t_240,240,rLane_59,lbc63,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_60,t_241,241,rLane_60,lbc64,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_61,t_242,242,rLane_61,lbc66,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_62,t_243,243,rLane_62,lbc68,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_63,t_244,244,rLane_63,lbc69,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_64,t_245,245,rLane_64,lbc70,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_NC2,t_246,246,rLane_NC2,lbc72,C01,r54257_20200316_171956,control,,lane,UCB,tick,,,,,,,,,,
+rLane_PCRNC,t_247,247,lima_output.lbc74--lbc74.bam.Q20,lbc74,C01,r54257_20200316_171956,control,,lane,UCB,tick,,,,,,,,,,
+T146,t_248,248,T146,lbc1,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,milton,northumberland,PA,,,,
+T147,t_249,249,T147,lbc1,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,milton,northumberland,PA,,,,
+T149,t_250,250,T149,lbc17,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,milton,northumberland,PA,,,,
+T150,t_251,251,T150,lbc68,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,milton,northumberland,PA,,,,
+T151,t_252,252,T151,lbc25,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,milton,northumberland,PA,,,,
+T152,t_253,253,T152,lbc25,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,dover,york,PA,,,,
+T190,t_254,254,T190,lbc73,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,greenville,greene,NY,,,,
+T191,t_255,255,T191,lbc66,B01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,greenville,greene,NY,,,,
+T192,t_256,256,T192,lbc73,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,albany,cohes,NY,,,,
+T193,t_257,257,T193,lbc81,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,lafayette_hill,montgomery,PA,,,,
+T194,t_258,258,T194,lbc2,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,lafayette_hill,montgomery,PA,,,,
+T198,t_259,259,T198,lbc68,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,salem,washington,NY,,,,
+T199,t_260,260,T199,lbc10,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,norwich,chenango,NY,,,,
+T200,t_261,261,T200,lbc10,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,sugarloaf,orange,NY,,,,
+T201,t_262,262,T201,lbc18,A01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,kindor_hook,columbia,NY,,,,
+T202,t_263,263,T202,lbc18,B01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,kindor_hook,columbia,NY,,,,
+T203,t_264,264,T203,lbc26,A01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,levitown,bucks ,PA,,,,
+T204,t_265,265,T204,lbc26,B01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,erwinna,bucks ,PA,,,,
+T207,t_266,266,T207,lbc34,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,freeport,cumberland,ME,,,,
+T210,t_267,267,T210,lbc3,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,jay,essex,NY,,,,
+T212,t_268,268,T212,lbc11,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,jay,essex,NY,,,,
+T213,t_269,269,T213,lbc19,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,jay,essex,NY,,,,
+T217,t_270,270,T217,lbc27,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,woolwhich,swedesboro,NY,,,,
+T218,t_271,271,T218,lbc35,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,woolwhich,swedesboro,NY,,,,
+T219,t_272,272,T219,lbc35,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,woolwhich,swedesboro,NY,,,,
+T220,t_273,273,T220,lbc43,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,paxton,snyder,PA,,,,
+T221,t_274,274,T221,lbc43,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,paxton,snyder,PA,,,,
+T222,t_275,275,T222,lbc4,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,paxton,snyder,PA,,,,
+T223,t_276,276,T223,lbc12,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,paxton,snyder,PA,,,,
+T224,t_277,277,T224,lbc12,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,paxton,snyder,PA,,,,
+T225,t_278,278,T225,lbc28,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,paxton,snyder,PA,,,,
+T226,t_279,279,T226,lbc28,B01,r54257_20191010_143707,tick,rhicephalus_sanguineus,,DU,tick,adult,female,,romulus,seneca,NY,,,,
+T227,t_280,280,T227,lbc44,A01,r54257_20191010_143707,tick,rhicephalus_sanguineus,,DU,tick,adult,female,,romulus,seneca,NY,,,,
+T228,t_281,281,T228,lbc44,B01,r54257_20191010_143707,tick,rhicephalus_sanguineus,,DU,tick,adult,female,,romulus,seneca,NY,,,,
+T229,t_282,282,T229,lbc52,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,arlington,bennington,VT,,,,
+T230,t_283,283,T230,lbc52,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,arlington,bennington,VT,,,,
+T231,t_284,284,T231,lbc60,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,arlington,bennington,VT,,,,
+T232,t_285,285,T232,lbc60,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,arlington,bennington,VT,,,,
+T233,t_286,286,T233,lbc5,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,arlington,bennington,VT,,,,
+T234,t_287,287,T234,lbc5,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,arlington,bennington,VT,,,,
+T236,t_288,288,T236,lbc13,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,arlington,bennington,VT,,,,
+T238,t_289,289,T238,lbc29,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,arlington,bennington,VT,,,,
+T241,t_290,290,T241,lbc59,A01,r54257_20191010_143707,tick,amblyomma_americanum,,DU,tick,adult,female,,oswego,oswego,NY,,,,
+T242,t_291,291,T242,lbc37,A01,r54257_20191010_143707,tick,amblyomma_americanum,,DU,tick,adult,female,,oswego,oswego,NY,,,,
+T248,t_292,292,T248,lbc37,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,media,delaware,PA,,,,
+T250,t_293,293,T250,lbc53,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,harleysville,montgomery,PA,,,,
+T254,t_294,294,T254,lbc70,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,altamont,albany,NY,,,,
+T257,t_295,295,T257,lbc61,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,downingtown,chester,PA,,,,
+T261,t_296,296,T261,lbc6,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,cave_junction,josephine,OR,,,,
+T262,t_297,297,T262,lbc50,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,cave_junction,josephine,OR,,,,
+T264,t_298,298,T264,lbc14,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,san_rafael,marin,CA,,,,
+T265,t_299,299,T265,lbc30,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,san_rafael,marin,CA,,,,
+T266,t_300,300,T266,lbc56,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,san_rafael,marin,CA,,,,
+T269,t_301,301,T269,lbc54,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,cossayuna,washington,NY,,,,
+T273,t_302,302,T273,lbc69,B01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,cossayuna,washington,NY,,,,
+T274,t_303,303,T274,lbc58,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,cossayuna,washington,NY,,,,
+T283,t_304,304,T283,lbc51,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,neptune,mommouth,NJ,,,,
+T288,t_305,305,T288,lbc15,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,neptune,mommouth,NJ,,,,
+T289,t_306,306,T289,lbc69,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,neptune,mommouth,NJ,,,,
+T292,t_307,307,T292,lbc39,A01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,rockland,rockland,NY,,,,
+T297,t_308,308,T297,lbc51,B01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,rockland,rockland,NY,,,,
+T299,t_309,309,T299,lbc47,A01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,rockland,rockland,NY,,,,
+T303,t_310,310,T303,lbc63,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,rockland,rockland,NY,,,,
+T304,t_311,311,T304,lbc79,A01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,trout_run,lycoming,PA,,,,
+T305,t_312,312,T305,lbc79,B01,r54257_20191010_143707,tick,dermacentor_variabilis,,DU,tick,adult,female,,trout_run,lycoming,PA,,,,
+T308,t_313,313,T308,lbc8,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,newtown_square,delaware,PA,,,,
+T311,t_314,314,T311,lbc50,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,media,delaware,PA,,,,
+T313,t_315,315,T313,lbc16,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,female,,media,delaware,PA,,,,
+T316,t_316,316,T316,lbc58,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,media,delaware,PA,,,,
+T317,t_317,317,T317,lbc32,B01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,media,delaware,PA,,,,
+T318,t_318,318,T318,lbc40,A01,r54257_20191010_143707,tick,ixodes_scapularis,,DU,tick,adult,male,,cohoes,albany,PA,,,,
+NC_extraction_9-19_cellB,t_319,319,NC_extraction_9-19_cellB,,,,control,,,,tick,,,,,,,,,,
+NC_extraction_9-28_cellB,t_320,320,NC_extraction_9-28_cellB,,,,control,,,,tick,,,,,,,,,,
+NC_extraction_cellA,t_321,321,NC_extraction_cellA,,,,control,,,,tick,,,,,,,,,,
+NC_PCR4_cellA,t_322,322,NC_PCR4_cellA,,,,control,,,,tick,,,,,,,,,,
+NC_PCR6_cellB,t_323,323,NC_PCR6_cellB,,,,control,,,,tick,,,,,,,,,,
+RL17,t_324,324,RL17,lbc1,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL18,t_325,325,RL18,lbc2,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL19,t_326,326,RL19,lbc3,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL20,t_327,327,RL20,lbc4,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL21,t_328,328,RL21,lbc5,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL22,t_329,329,RL22,lbc6,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL23,t_330,330,RL23,lbc7,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL24,t_331,331,RL24,lbc8,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL25,t_332,332,RL25,lbc24,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL26,t_333,333,RL26,lbc10,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL27,t_334,334,RL27,lbc11,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL28,t_335,335,RL28,lbc12,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL29,t_336,336,RL29,lbc13,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL30,t_337,337,RL30,lbc14,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL31,t_338,338,RL31,lbc15,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL32,t_339,339,RL32,lbc16,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL33,t_340,340,RL33,lbc17,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL34,t_341,341,RL34,lbc18,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL35,t_342,342,RL35,lbc19,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL36,t_343,343,RL36,lbc21,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL37,t_344,344,RL37,lbc22,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL38,t_345,345,RL38,lbc32,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL39,t_346,346,RL39,lbc34,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL40,t_347,347,RL40,lbc35,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL66,t_348,348,RL66,lbc25,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL67,t_349,349,RL67,lbc26,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL68,t_350,350,RL68,lbc27,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL69,t_351,351,RL69,lbc28,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL70,t_352,352,RL70,lbc29,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL71,t_353,353,RL71,lbc30,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL72,t_354,354,RL72,lbc37,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL73,t_355,355,RL73,lbc38,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL74,t_356,356,RL74,lbc39,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL75,t_357,357,RL75,lbc40,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL76,t_358,358,RL76,lbc42,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL77,t_359,359,RL77,lbc43,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL78,t_360,360,RL78,lbc44,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL79,t_361,361,RL79,lbc47,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL80,t_362,362,RL80,lbc66,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL81,t_363,363,RL81,lbc72,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL82,t_364,364,RL82,lbc49,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL83,t_365,365,RL83,lbc50,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL84,t_366,366,RL84,lbc51,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL85,t_367,367,RL85,lbc52,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL86,t_368,368,RL86,lbc53,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL87,t_369,369,RL87,lbc54,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL88,t_370,370,RL88,lbc56,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL89,t_371,371,RL89,lbc68,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL90,t_372,372,RL90,lbc69,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL91,t_373,373,RL91,lbc70,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL92,t_374,374,RL92,lbc90,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+Isolation control,t_375,375,Isolation control,lbc91,D01,r54257_20200728_141738,control,,lane,UCB,tick,,,,,,,,,,
+PCR control,t_376,376,PCR control,lbc92,D01,r54257_20200728_141738,control,,lane,UCB,tick,,,,,,,,,,

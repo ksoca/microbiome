@@ -1,0 +1,97 @@
+﻿sample,rName,r_num,original_samp_ID,bc,cell,runID,type,host,collaborator,institution,proj,stage,sex,park,town,county,state,environment,animal,antibiotic,group
+rLane_NC1,t_205,205,rLane_NC1,lbc16,C01,r54257_20200316_171956,control,,lane,UCB,tick,,,,,,,,,,
+rLane_1,t_206,206,rLane_1,lbc17,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_2,t_207,207,rLane_2,lbc18,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_3,t_208,208,rLane_3,lbc19,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_4,t_209,209,rLane_4,lbc21,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_5,t_210,210,rLane_5,lbc22,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_6,t_211,211,rLane_6,lbc24,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_7,t_212,212,rLane_7,lbc25,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_8,t_213,213,rLane_8,lbc26,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_9,t_214,214,rLane_9,lbc27,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_10,t_215,215,rLane_10,lbc28,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_11,t_216,216,rLane_11,lbc29,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_12,t_217,217,rLane_12,lbc30,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_13,t_218,218,rLane_13,lbc32,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_14,t_219,219,rLane_14,lbc34,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_15,t_220,220,rLane_15,lbc35,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_16,t_221,221,rLane_16,lbc37,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_41,t_222,222,rLane_41,lbc38,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_42,t_223,223,rLane_42,lbc39,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_43,t_224,224,rLane_43,lbc40,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_44,t_225,225,rLane_44,lbc42,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_45,t_226,226,rLane_45,lbc43,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_46,t_227,227,rLane_46,lbc44,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_47,t_228,228,rLane_47,lbc49,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_48,t_229,229,rLane_48,lbc50,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_49,t_230,230,rLane_49,lbc51,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_50,t_231,231,rLane_50,lbc52,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_51,t_232,232,rLane_51,lbc53,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_52,t_233,233,rLane_52,lbc54,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_53,t_234,234,rLane_53,lbc56,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_54,t_235,235,rLane_54,lbc58,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_55,t_236,236,rLane_55,lbc59,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_56,t_237,237,rLane_56,lbc60,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_57,t_238,238,rLane_57,lbc61,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_58,t_239,239,rLane_58,lbc62,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_59,t_240,240,rLane_59,lbc63,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_60,t_241,241,rLane_60,lbc64,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_61,t_242,242,rLane_61,lbc66,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_62,t_243,243,rLane_62,lbc68,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_63,t_244,244,rLane_63,lbc69,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_64,t_245,245,rLane_64,lbc70,C01,r54257_20200316_171956,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Redwood Regional,oakland,almeda,CA,park,no,no,yes
+rLane_NC2,t_246,246,rLane_NC2,lbc72,C01,r54257_20200316_171956,control,,lane,UCB,tick,,,,,,,,,,
+rLane_PCRNC,t_247,247,lima_output.lbc74--lbc74.bam.Q20,lbc74,C01,r54257_20200316_171956,control,,lane,UCB,tick,,,,,,,,,,
+RL17,t_324,324,RL17,lbc1,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL18,t_325,325,RL18,lbc2,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL19,t_326,326,RL19,lbc3,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL20,t_327,327,RL20,lbc4,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL21,t_328,328,RL21,lbc5,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL22,t_329,329,RL22,lbc6,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL23,t_330,330,RL23,lbc7,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL24,t_331,331,RL24,lbc8,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL25,t_332,332,RL25,lbc24,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL26,t_333,333,RL26,lbc10,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL27,t_334,334,RL27,lbc11,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL28,t_335,335,RL28,lbc12,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL29,t_336,336,RL29,lbc13,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL30,t_337,337,RL30,lbc14,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL31,t_338,338,RL31,lbc15,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL32,t_339,339,RL32,lbc16,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL33,t_340,340,RL33,lbc17,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL34,t_341,341,RL34,lbc18,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL35,t_342,342,RL35,lbc19,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL36,t_343,343,RL36,lbc21,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL37,t_344,344,RL37,lbc22,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL38,t_345,345,RL38,lbc32,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL39,t_346,346,RL39,lbc34,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL40,t_347,347,RL40,lbc35,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,female,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL66,t_348,348,RL66,lbc25,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL67,t_349,349,RL67,lbc26,C01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL68,t_350,350,RL68,lbc27,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL69,t_351,351,RL69,lbc28,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL70,t_352,352,RL70,lbc29,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL71,t_353,353,RL71,lbc30,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL72,t_354,354,RL72,lbc37,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL73,t_355,355,RL73,lbc38,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL74,t_356,356,RL74,lbc39,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL75,t_357,357,RL75,lbc40,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL76,t_358,358,RL76,lbc42,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL77,t_359,359,RL77,lbc43,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL78,t_360,360,RL78,lbc44,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL79,t_361,361,RL79,lbc47,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL80,t_362,362,RL80,lbc66,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL81,t_363,363,RL81,lbc72,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL82,t_364,364,RL82,lbc49,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL83,t_365,365,RL83,lbc50,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL84,t_366,366,RL84,lbc51,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL85,t_367,367,RL85,lbc52,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL86,t_368,368,RL86,lbc53,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL87,t_369,369,RL87,lbc54,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL88,t_370,370,RL88,lbc56,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL89,t_371,371,RL89,lbc68,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL90,t_372,372,RL90,lbc69,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL91,t_373,373,RL91,lbc70,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+RL92,t_374,374,RL92,lbc90,D01,r54257_20200728_141738,tick,Ixodes pacificus,lane,UCB,tick,adult,male,Anthony Chabot Regional,oakland,almeda,CA,park,no,no,yes
+Isolation control,t_375,375,Isolation control,lbc91,D01,r54257_20200728_141738,control,,lane,UCB,tick,,,,,,,,,,
+PCR control,t_376,376,PCR control,lbc92,D01,r54257_20200728_141738,control,,lane,UCB,tick,,,,,,,,,,
